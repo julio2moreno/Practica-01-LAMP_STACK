@@ -67,26 +67,28 @@ Creamos el archivo .htaccess
 ``sudo /var/www/html/stats/.htaccess``
 
 Dentro de .htaccess debe contener el siguiente texto:
-
-``AuthType Basic
+````
+AuthType Basic
 AuthName "Restricted Content"
 AuthUserFile /home/usuario/.htpasswd
-Require valid-user``
+Require valid-user
+````
+
 
 Dentro del archivo de configuracion Apache añadimos las etiquetas de <VirtualHost *:80> y </VirtualHost>.
 
-``sudo nano /etc/apache2/sites-enabled/000-default.conf``
+````sudo nano /etc/apache2/sites-enabled/000-default.conf````
 
-``<Directory "/var/www/html/stats">
-
+````
+<Directory "/var/www/html/stats">
   Options Indexes FollowSymLinks
-  
   AllowOverride All
-  
   Require all granted
-</Directory>``
+</Directory>
+````
 
 Reiniciamos Apache para que se apliquen los cambios.
+
 
 ``sudo /etc/init.d/apache2 restart`` ò ``sudo systemctl restart apache2`` 
 
